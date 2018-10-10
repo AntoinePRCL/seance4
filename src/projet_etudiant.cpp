@@ -32,15 +32,19 @@ int main () {
 		list.push_back(eleve);
 		break;
 	case 1 :
-		cout<<list.size()<<endl;
 		cout<<"Entrez le nom de l'étudiant : ";
 		cin>>name;
-		do {
+		for (int i = 0; i<list.size(); i++){
+			if (name == list[i].getName()) cout<<"Note de "<<list[i].getName()<<" : "<<list[i].getNote()<<endl;
+			break;
+		}
+		/*while ((name != list[i].getName())&&(i <= list.size()))
+ 		{
+			cout<<"saisie :"<<name<<" nom : "<<list[i].getName()<<endl;
 			if (name == list[i].getName()) {cout<<"Note de "<<name<<" : "<<list[i].getNote()<<endl;}
 			if (i > list.size()) {cout<<"Etudiant inconnu"<<endl;}
 			i++;
-		} while ((name != list[i].getName())||(i <= list.size()));
-		i = 0;
+		}*/
 		break;
 	case 4 :
 		return 0;
