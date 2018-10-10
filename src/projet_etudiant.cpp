@@ -2,6 +2,7 @@
 #include <vector>
 #include <string>
 #include "Eleve.h"
+#include <fstream>
 
 using namespace std;
 
@@ -11,8 +12,11 @@ int main () {
 	int choix;
 	string name;
 	int note;
-	int i = 0;
+
+	ofstream f_notes;
+	f_notes.open("notes.txt");
 	do {
+	int i = 0;
 	Eleve eleve;
 	cout<<"		Projet Etudiant		"<<endl;
 	cout<<"1 - Consulter un étudiant"<<endl;
@@ -30,6 +34,7 @@ int main () {
 		cin>>note;
 		eleve.setNote(note);
 		list.push_back(eleve);
+		f_notes<<name<<" : "<<note<<endl;
 		break;
 	case 1 :
 		cout<<"Entrez le nom de l'étudiant : ";
@@ -56,4 +61,5 @@ int main () {
 		}
 	}
 	}while (1);
+	f_notes.close();
 }
